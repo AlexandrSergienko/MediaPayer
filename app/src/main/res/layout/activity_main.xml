@@ -19,12 +19,12 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
-
+<!--FIXME it's better to use Wrapcontent or Match parent with paddings or margins. Avoid using of hard coded dimensions-->
         <ImageView
             app:srcCompat="@drawable/cover"
             android:id="@+id/imageView2"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:layout_width="300dp"
+            android:layout_width="300dp" 
             android:layout_height="300dp" />
 
         <LinearLayout
