@@ -1,4 +1,4 @@
-package com.vennich.mediapayer;
+package com.vennich.mediapayer; //FIXME missed character
 
 import android.app.Activity;
 import android.content.ComponentName;
@@ -27,10 +27,10 @@ public class MainActivity extends Activity {
     private SeekBar seekBar;
     private ImageView imageView2;
 
-
-    private String formatTimeFormat(int duration){
+//FIXME change name of the function. It's not clear what this function actually does
+    private String formatTimeFormat(int duration /*it's better to change this parameter to long and change the name of parameter to clarified TimeUnit at seconds or milliseconds*/){
         StringBuilder sb = new StringBuilder();
-        int seconds = duration / 1000;
+        int seconds = duration / 1000 /*what are the magic numbers? You should use constants for all magic numbers and it'd be better to use JODA library to operate with dates */;
         if(seconds / 60 > 9){
             sb.append(seconds / 60).append(":");
         }else if(seconds / 60 > 0){
@@ -91,7 +91,8 @@ public class MainActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         //disconnection from MyService
-        if (isConnected) {
+        if (isConnected) { 
+            //FIXME you should unbind the service at the same life cycle method
             unbindService(serviceConnection);
             isConnected = false;
         }
@@ -127,7 +128,7 @@ public class MainActivity extends Activity {
         }
     };
 
-    public void stop_click(View view) {
+    public void stop_click(View view) { //FIXME method names with Java Code Convention
         myService.changeAudioState(2);
     }
     public void play_click(View view) {
